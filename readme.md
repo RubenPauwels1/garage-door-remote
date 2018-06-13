@@ -1,6 +1,6 @@
 # Garage Door Remote
 
-Garage door opener is a garage door remote uses the following technologies:
+Garage door opener is a garage door remote and uses the following technologies:
 
   - NodeJS
   - node-wiring-pi
