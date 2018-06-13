@@ -1,12 +1,8 @@
 # Garage Door Remote
 
-Garage door opener is a garage door remote and uses the following technologies:
+A garage door remote back-end for Raspberry Pi
 
-  - NodeJS
-  - node-wiring-pi
-  - Express
-
-## Installation
+## Installation and usage
 ```sh
 $ npm install
 $ npm start
@@ -15,3 +11,15 @@ $ yarn start
 or
 $ nodemon app
 ```
+The app will now run on port 9000 😎
+
+## Technology used
+
+Current:
+  - NodeJS
+  - Express
+
+Future:
+  - node-wiring-pi
+  - socket io
+  - Firebase
