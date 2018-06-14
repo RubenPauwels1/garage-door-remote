@@ -1,5 +1,18 @@
 const express = require('express')
 const colors = require('colors')
+const firebase = require('firebase');
+const env = require('dotenv').config()
+
+var config = {
+    apiKey: env.APIKEY,
+    authDomain: env.AUTHDOMAIN,
+    databaseURL: env.DATABASEURL,
+    projectId: env.PROJECTID,
+    storageBucket: env.STORAGEBUCKET,
+    messagingSenderId: env.MESSAGINGSENDERID
+  };
+firebase.initializeApp(config);
+
 
 const app = express()
 const port = 9000;

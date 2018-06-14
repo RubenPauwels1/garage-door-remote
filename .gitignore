@@ -57,3 +57,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Firebase
+garage-door-remote-firebase-adminsdk-quv88-35f7ba94b5.json
