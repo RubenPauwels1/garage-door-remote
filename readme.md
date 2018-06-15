@@ -1,16 +1,18 @@
 # Garage Door Remote
 
-A garage door remote back-end for Raspberry Pi
+A garage door remote API for Raspberry Pi using WiringPi.
 
 ## Installation and usage
 ```sh
 $ npm install
 $ npm start
-or
-$ yarn start
-or
-$ nodemon app
 ```
+or
+```sh
+$ yarn install
+$ yarn start
+```
+
 The app will now run on port 9000 😎
 
 ## Technology used
