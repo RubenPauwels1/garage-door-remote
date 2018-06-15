@@ -18,8 +18,8 @@ The app will now run on port 9000 😎
 Current:
   - NodeJS
   - Express
+  - Firebase
 
 Future:
   - node-wiring-pi
   - socket io
-  - Firebase
