@@ -9,7 +9,6 @@ var bodyParser = require('body-parser')
 //----------------
 //Firebase config
 //----------------
-
 var config = {
     apiKey: process.env.APIKEY,
     authDomain: process.env.AUTHDOMAIN,
@@ -28,7 +27,6 @@ const port = 9000;
 //------------------------------
 //Write external ip to Firebase
 //------------------------------
-
 function writeIP() {
     var database = firebase.database();
 
@@ -53,7 +51,6 @@ setInterval(writeIP, 60000);
 //---------------
 //Listen to port
 //---------------
-
 app.listen(port, () => {
     console.log('GARAGE DOOR OPENER'.rainbow.bold);
     console.log(colors.white.italic('Running on port'), colors.red.bold(`${port}`))
@@ -62,7 +59,6 @@ app.listen(port, () => {
 //---------------------------------------------------------------------------
 //POST: localhost:9000/login with {"email": "YOUREMAIL", "pass": "YOURPASS"}
 //---------------------------------------------------------------------------
-
 app.post('/open', jsonParser, (req, res) => {
     console.log('Trying to log in with email', req.body.email);
 
