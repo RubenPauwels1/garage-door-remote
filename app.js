@@ -3,6 +3,7 @@ const colors = require('colors')
 const firebase = require('firebase');
 const env = require('dotenv').config()
 const getIP = require('external-ip')();
+const wpi = require('wiring-pi');
 
 var bodyParser = require('body-parser')
 
@@ -55,6 +56,35 @@ app.listen(port, () => {
     console.log('GARAGE DOOR OPENER'.rainbow.bold);
     console.log(colors.white.italic('Running on port'), colors.red.bold(`${port}`))
 })
+
+app.get('/testgpio', (req, res ) => {
+    console.log('TESTING GPIO');
+    console.log('SETTING THINGS UP');
+    wpi.wiringPiSetupGpio();
+    /*const { exec } = require('child_process');
+    exec('node -v', (err, stdout, stderr) => {
+      if (err) {
+        // node couldn't execute the command
+        return;
+      }
+
+      // the *entire* stdout and stderr (buffered)
+      console.log(`stdout: ${stdout}`);
+      console.log(`stderr: ${stderr}`);
+    });*/
+    console.log('DONE');
+    console.log('SETTING UP PIN');
+    //wpi.pinMode(14, 'OUT');
+    console.log('DONE');
+    console.log('ENABLING PIN');
+    wpi.digitalWrite(14, 0);
+    console.log('DISABLING PIN');
+    setTimeout(function(){
+       wpi.digitalWrite(14, 1);
+    }, 1500);
+    console.log('DONE');
+    return res.sendStatus(200);
+});
 
 //---------------------------------------------------------------------------
 //POST: localhost:9000/login with {"email": "YOUREMAIL", "pass": "YOURPASS"}
