@@ -21,7 +21,7 @@ Current:
   - NodeJS
   - Express
   - Firebase
+  - WiringPi
 
 Future:
-  - node-wiring-pi
   - socket io
