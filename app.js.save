@@ -34,7 +34,7 @@ function writeIP() {
     getIP((err, ip) => {
         if (err) {
             // every service in the list has failed
-            console.log(err);
+            throw err;
         }
         
         database.ref('/').set({
@@ -60,30 +60,10 @@ app.listen(port, () => {
 app.get('/testgpio', (req, res ) => {
     console.log('TESTING GPIO');
     console.log('SETTING THINGS UP');
-    wpi.wiringPiSetupGpio();
-    /*const { exec } = require('child_process');
-    exec('node -v', (err, stdout, stderr) => {
-      if (err) {
-        // node couldn't execute the command
-        return;
-      }
-
-      // the *entire* stdout and stderr (buffered)
-      console.log(`stdout: ${stdout}`);
-      console.log(`stderr: ${stderr}`);
-    });*/
+    wpi.
     console.log('DONE');
-    console.log('SETTING UP PIN');
-    //wpi.pinMode(14, 'OUT');
-    console.log('DONE');
-    console.log('ENABLING PIN');
-    wpi.digitalWrite(14, 0);
-    console.log('DISABLING PIN');
-    setTimeout(function(){
-       wpi.digitalWrite(14, 1);
-    }, 1500);
-    console.log('DONE');
-    return res.sendStatus(200);
+    console.log('OPEN PIN 14');
+    
 });
 
 //---------------------------------------------------------------------------
