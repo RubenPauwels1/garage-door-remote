@@ -25,8 +25,6 @@ var jsonParser = bodyParser.json()
 const app = express()
 const port = 9000;
 
-const gpioPIN = parseInt(process.env.PIN);
-
 //------------------------------
 //Write external ip to Firebase
 //------------------------------
@@ -36,7 +34,7 @@ function writeIP() {
     getIP((err, ip) => {
         if (err) {
             // every service in the list has failed
-            console.log(err);
+            console.log('CANNOT GET IP: ' + err);
         }
         
         database.ref('/').set({
@@ -57,27 +55,25 @@ setInterval(writeIP, 60000);
 app.listen(port, () => {
     console.log('GARAGE DOOR OPENER'.rainbow.bold);
     console.log(colors.white.italic('Running on port'), colors.red.bold(`${port}`))
-    
-    //SET GPIO PIN TO OUT
-    wpi.wiringPiSetupGpio();
-    wpi.pinMode(gpioPIN, wpi.OUTPUT);
-    console.log(`pin ${gpioPIN} set to OUT`);
-    //monitorPin(gpioPIN);
 })
 
-//----------------------
-//Trigger relay function
-//----------------------
-function triggerRelay(pin){
-	console.log('Trying to trigger relay');
-
-	wpi.wiringPiSetupGpio();
-	
-	wpi.digitalWrite(pin,0);
-	setTimeout(function(){
-		wpi.digitalWrite(pin, 1);
-	}, 1500);
-}
+app.get('/testgpio', (req, res ) => {
+    console.log('TESTING GPIO');
+    console.log('SETTING THINGS UP');
+    wpi.wiringPiSetupGpi
+    console.log('DONE');
+    console.log('SETTING UP PIN');
+    //wpi.pinMode(14, 'OUT');
+    console.log('DONE');
+    console.log('ENABLING PIN');
+    wpi.digitalWrite(14, 0);
+    console.log('DISABLING PIN');
+    setTimeout(function(){
+       wpi.digitalWrite(14, 1);
+    }, 1500);
+    console.log('DONE');
+    return res.sendStatus(200);
+});
 
 //---------------------------------------------------------------------------
 //POST: localhost:9000/login with {"email": "YOUREMAIL", "pass": "YOURPASS"}
@@ -90,27 +86,12 @@ app.post('/open', jsonParser, (req, res) => {
 
     const auth = firebase.auth();
 
-    const database = firebase.database();
-
     auth.signInWithEmailAndPassword(email, pass).then(function(){
 
         //Authorized
         console.log('200', 'Succesfully logged in with email', email)
 
         //Ready for lift off! 🚀
-	triggerRelay(gpioPIN);
-
-	//Write entry in DB
-	const datetime = Date.now();
-
-	database.ref('logs').set({
-		lastOpen: datetime,
-		openedBy: email,
-	}).then(function(){
-		console.log(`${email} opened the garage door`);
-	}).catch(function(){
-		console.log('Cannot write log to DB');
-	});
 
         //Set status 200
         return res.sendStatus(200)
@@ -131,13 +112,3 @@ app.get('/', jsonParser, (req, res) => {
 
     res.send('Test 123')
 })
-
-function monitorPin(pin){
-    wpi.wiringPiSetupGpio();
-
-    var pin = parseInt(pin);
-
-    wpi.wiringPiISR(pin, wpi.INT_EDGE_BOTH, function(delta){
-	console.log(`pin ${pin} changed.`);
-    });
-}
