@@ -22,6 +22,3 @@ Current:
   - Express
   - Firebase
   - WiringPi
-
-Future:
-  - socket io
