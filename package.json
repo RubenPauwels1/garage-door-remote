@@ -1,0 +1,26 @@
+{
+  "name": "garagedoor-api",
+  "version": "1.0.0",
+  "description": "A Garagedoor API.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubenPauwels1/garagedoor-api.git"
+  },
+  "author": "Ruben Pauwels",
+  "bugs": {
+    "url": "https://github.com/RubenPauwels1/garagedoor-api/issues"
+  },
+  "homepage": "https://github.com/RubenPauwels1/garagedoor-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "external-ip": "^2.1.1",
+    "firebase": "^5.6.0",
+    "socketio": "^1.0.0"
+  }
+}
