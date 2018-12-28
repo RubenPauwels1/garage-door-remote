@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 ### Node ###
->>>>>>> d9beba7fadb5483c0408a9e5dce06ac23a02fc72
 # Logs
 logs
 *.log
@@ -33,22 +30,15 @@ bower_components
 # node-waf configuration
 .lock-wscript
 
-<<<<<<< HEAD
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-=======
-# Compiled binary addons (http://nodejs.org/api/addons.html)
->>>>>>> d9beba7fadb5483c0408a9e5dce06ac23a02fc72
 build/Release
 
 # Dependency directories
 node_modules/
 jspm_packages/
 
-<<<<<<< HEAD
-# TypeScript v1 declaration files
-=======
+
 # Typescript v1 declaration files
->>>>>>> d9beba7fadb5483c0408a9e5dce06ac23a02fc72
 typings/
 
 # Optional npm cache directory
@@ -69,10 +59,8 @@ typings/
 # dotenv environment variables file
 .env
 
-<<<<<<< HEAD
-# next.js build output
-.next
-=======
 # Firebase
 garage-door-remote-firebase-adminsdk-quv88-35f7ba94b5.json
->>>>>>> d9beba7fadb5483c0408a9e5dce06ac23a02fc72
+
+### Nano ###
+*.save
