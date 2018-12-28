@@ -19,6 +19,7 @@ router.route('/test').get(testController.test)
  */
 router.route('/user/loginWithUserAndPassword').post(JSONParser, userController.postGetToken)
 router.route('/port/open').post(JSONParser, portController.open)
+router.route('/port/isopen').post(JSONParser, portController.isopen)
 
 
 
