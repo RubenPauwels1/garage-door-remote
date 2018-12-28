@@ -1,5 +1,5 @@
 const express = require('express')
-<<<<<<< HEAD
+
 const env = require('dotenv').config()
 const firebase = require('firebase')
 
