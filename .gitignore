@@ -63,4 +63,5 @@ typings/
 garage-door-remote-firebase-adminsdk-quv88-35f7ba94b5.json
 
 ### Nano ###
+# .save buffer files
 *.save
