@@ -17,6 +17,17 @@ module.exports = {
 				console.log('200', `Succesfully logged ${email} in!`);
 
 				toggleRelay();
+
+				const time = Date.now();
+
+				database.ref('logs').push({
+					time,
+					email
+				}).then(function(){
+					console.log('Log written to DB');
+				}).catch(function(){
+					console.log('Cannot write log to DB');
+				})
 				
 			}).catch(function() {
 				console.log('403', `Cannot log ${email} in.`);
@@ -77,7 +88,6 @@ function toggleRelay() {
 						}
 
 			console.log('Toggled the garagedoor');
-			return res.status(200).send('Done');
 		});
 	}, 150);
 }
