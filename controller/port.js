@@ -28,6 +28,8 @@ module.exports = {
 				}).catch(function(){
 					console.log('Cannot write log to DB');
 				})
+
+				return res.status(200).send('Done');
 				
 			}).catch(function() {
 				console.log('403', `Cannot log ${email} in.`);
