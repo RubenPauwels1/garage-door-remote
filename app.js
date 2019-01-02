@@ -6,7 +6,7 @@ const firebase = require('firebase')
 const firebaseConfig = require('./firebaseConfig')
 const routes = require('./routes/routes')
 
-const firebaseApp = firebase.initializeApp(firebaseConfig)
+const firebaseApp = firebase.initializeApp(firebaseConfig.config)
 
 const app = express()
 const port = process.env.PORT
