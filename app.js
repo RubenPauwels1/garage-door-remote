@@ -17,7 +17,7 @@ const port = process.env.PORT
 app.use('/api', routes);
 
 const interval  = 60000;
-const interval2 = 2000;
+const interval2 = 1000;
 
 async function getIP() {
 	try {
@@ -41,7 +41,7 @@ function checkIfOpen() {
 		const isOpen = parseInt(stdout) === 1 ? 'closed' : 'open';
 
 		database.ref('status').set({
-			isOpen
+			status: isOpen
 		})
 	});
 
